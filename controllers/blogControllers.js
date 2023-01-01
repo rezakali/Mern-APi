@@ -25,7 +25,7 @@ const getBlog = async (req, res) => {
 const createBlog = async (req, res) => {
   const { name, title, body } = req.body;
 
-  const emptyFields = []
+  let emptyFields = []
 
   if(!title){
     emptyFields.push("Title")

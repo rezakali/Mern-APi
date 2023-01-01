@@ -25,7 +25,7 @@ const getWorkout = async (req, res) => {
 const createWorkout = async (req, res) => {
   const { title, reps, load } = req.body;
 
-  const emptyFields = []
+  let emptyFields = []
 
   if(!title){
     emptyFields.push("Title")
