@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const workoutRoutes = require("./routes/workout");
 const blogRoutes = require("./routes/blog")
+const loginRoutes = require('./routes/users')
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use((req, res, next) => {
 
 app.use("/api/workouts", workoutRoutes);
 app.use("/api/blogs", blogRoutes);
+app.use("/api/user", loginRoutes);
 /*app.get("/", (req, res) => {
   res.json({ msg: "Hello" });
 }); */
