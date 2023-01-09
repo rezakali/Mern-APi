@@ -19,12 +19,25 @@ const userSchema = new Schema({
     },
     age: {
         type: Number, 
+        required: true,
     }
 })
 
 
 // Statics mathod
 userSchema.statics.signup = async function(email, password, fullname, age) {
+    if(!email || !password || !fullname){
+        throw Error('All fields required')
+    }
+
+    if(!validator.isEmail(email)){
+        throw Error('Please provide a valid Email')
+    }
+
+    if(!validator.isStrongPassword(password)){
+        throw Error('Please enter a strong password')
+    }
+
     const exists = await this.findOne({ email })
 
     if(exists){
